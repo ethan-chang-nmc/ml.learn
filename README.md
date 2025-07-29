@@ -1,5 +1,6 @@
 # ml.learn
-practicing libraries and concepts related to machine learning <br>
+practicing libraries and concepts related to machine learning <br><br>
+
 Resources used include:
 - Kaggle learning modules
 - Bishop's Deep Larning Foundations and Concepts
