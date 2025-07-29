@@ -1,5 +1,5 @@
 # ml.learn
-<b>Ethan Chang</b>
+<b>Ethan Chang</b><br>
 practicing libraries and concepts related to machine learning <br><br>
 
 Resources used include:
