@@ -26,4 +26,9 @@ Indexing, Selecting, and Assigning
 reviews['country'][0]
 reviews.country
 
-# Indexing
+# Indexing: loc and iloc (row-first, column second [opposite of native python])
+reviews.iloc[:, 0] # all rows, column 0
+reviews.iloc[1:3, 0]
+reviews.iloc[[0, 1, 2], 0]
+reviews.iloc[-5:] # last 5 elements
+
