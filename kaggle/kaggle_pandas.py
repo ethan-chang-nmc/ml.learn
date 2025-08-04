@@ -44,3 +44,7 @@ reviews.loc[(reviews.country == 'Italy') & (reviews.points >= 90)] # and
 reviews.loc[(reviews.country == 'Italy') | (reviews.points >= 90)] # or
 reviews.loc[reviews.country.isin(['Italy', 'France'])] # selects data with value in list of values
 reviews.loc[reviews.price.notnull()] # aslo has isnull (empty, NaN)
+
+# Assigning data
+reviews['critic'] = 'everyone'
+reviews['index_backwards'] = range(len(reviews), 0, -1)
