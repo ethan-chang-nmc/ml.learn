@@ -36,3 +36,11 @@ reviews.loc[:, ['taster_name', 'taster_twitter_handle', 'points']] # [0:10] - il
 
 # Manipulating Index: index is mutable
 reviews.set_index("title")
+
+# Conditional Selection
+reviews.country == 'Italy' # returns 2 column index and boolean of is true or not (and Name: country, Length: 129971, dtype: bool)
+reviews.loc[reviews.country == 'Italy'] # select relevant data
+reviews.loc[(reviews.country == 'Italy') & (reviews.points >= 90)] # and
+reviews.loc[(reviews.country == 'Italy') | (reviews.points >= 90)] # or
+reviews.loc[reviews.country.isin(['Italy', 'France'])] # selects data with value in list of values
+reviews.loc[reviews.price.notnull()] # aslo has isnull (empty, NaN)
