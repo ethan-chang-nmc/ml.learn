@@ -48,3 +48,22 @@ reviews.loc[reviews.price.notnull()] # aslo has isnull (empty, NaN)
 # Assigning data
 reviews['critic'] = 'everyone'
 reviews['index_backwards'] = range(len(reviews), 0, -1)
+
+
+'''
+Summary Functions and Maps
+'''
+# Summary Functions (not offical name): restructures data in a useful way
+reviews.points.describe() # type-aware, numerics(count, mean, max, quartiles) string(count, uniqe, top, freq)
+reviews.points.mean()
+reviews.taster_name.unique()
+reviews.taster_name.value_counts()
+
+# Maps
+review_points_mean = reviews.points.mean()
+reviews.points.map(lambda p: p - review_points_mean)
+def remean_points(row):
+    row.points = row.points - review_points_mean
+    return row
+reviews.apply(remean_points, axis='columns')
+reviews.head(1)
