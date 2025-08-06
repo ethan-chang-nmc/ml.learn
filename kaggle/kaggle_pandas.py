@@ -60,8 +60,8 @@ reviews.taster_name.unique()
 reviews.taster_name.value_counts()
 
 # Maps
-review_points_mean = reviews.points.mean()
-reviews.points.map(lambda p: p - review_points_mean)
+review_points_mean = reviews.points.mean() # remean to 0
+reviews.points.map(lambda p: p - review_points_mean) # remean to 0, map() expects single value from series and returns transformed
 def remean_points(row):
     row.points = row.points - review_points_mean
     return row
