@@ -59,11 +59,13 @@ reviews.points.mean()
 reviews.taster_name.unique()
 reviews.taster_name.value_counts()
 
-# Maps
+# Maps: returns new transformed Series/DataFrames, original data not modified
 review_points_mean = reviews.points.mean() # remean to 0
 reviews.points.map(lambda p: p - review_points_mean) # remean to 0, map() expects single value from series and returns transformed
 def remean_points(row):
     row.points = row.points - review_points_mean
     return row
-reviews.apply(remean_points, axis='columns')
-reviews.head(1)
+reviews.apply(remean_points, axis='columns') # apply function to each row (axis tells it to grab a series of all columns -> creates row)
+review_points_mean = reviews.points.mean()
+reviews.points - review_points_mean # faster way to remean due to speed ups built into pandas
+reviews.country + " - " + reviews.region_1 # concatenate Series of equal length, standard operators work in this manner but less flexible than map() or apply()
