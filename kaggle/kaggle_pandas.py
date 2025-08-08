@@ -70,10 +70,7 @@ review_points_mean = reviews.points.mean()
 reviews.points - review_points_mean # faster way to remean due to speed ups built into pandas
 reviews.country + " - " + reviews.region_1 # concatenate Series of equal length, standard operators work in this manner but less flexible than map() or apply()
 
-
-'''
-Problems and Solutions
-'''
+# Problems and solutions
 # What is the median of the points column in the reviews DataFrame?
 median_points = reviews.points.median()
 
@@ -107,3 +104,8 @@ def star(row):
     else:
         return 1
 star_ratings = reviews.apply(star, axis="columns")
+
+
+'''
+Grouping and Sorting
+'''
