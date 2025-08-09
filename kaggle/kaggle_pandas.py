@@ -109,3 +109,8 @@ star_ratings = reviews.apply(star, axis="columns")
 '''
 Grouping and Sorting
 '''
+# Groupwise Analysis
+reviews.groupby('points').points.count() # replicates what value_counts() does by creating group of reviews w/ same point and then counting how many appearances
+reviews.groupby('points').price.min()
+reviews.groupby('winery').apply(lambda df: df.title.iloc[0]) # groups are thought of as a slice of DF containing values that match, use apply() to manipulate data (ex retribes first wine from each winery)
+reviews.groupby(['country', 'province']).apply(lambda df: df.loc[df.points.idxmax()]) # finer control, i
