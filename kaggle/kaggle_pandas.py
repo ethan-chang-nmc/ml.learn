@@ -117,3 +117,4 @@ reviews.groupby(['country', 'province']).apply(lambda df: df.loc[df.points.idxma
 reviews.groupby(['country']).price.agg([len, min, max]) # runs multiple functions on DataFrame simultaniously
 
 # Multi-indexes
+countries_reviewed = reviews.groupby(['country', 'province']).description.agg([len])
