@@ -117,4 +117,14 @@ reviews.groupby(['country', 'province']).apply(lambda df: df.loc[df.points.idxma
 reviews.groupby(['country']).price.agg([len, min, max]) # runs multiple functions on DataFrame simultaniously
 
 # Multi-indexes
-countries_reviewed = reviews.groupby(['country', 'province']).description.agg([len])
+countries_reviewed = reviews.groupby(['country', 'province']).description.agg([len]) # tiered structure with multiple indices
+mi = countries_reviewed.index
+type(mi) # returns pandas.core.indexes.multi.MultiIndex
+countries_reviewed.reset_index() # converts back to regular index
+
+# Sorting
+countries_reviewed = countries_reviewed.reset_index()
+countries_reviewed.sort_values(by='len') # normally sorts by index, this sorts by values
+countries_reviewed.sort_values(by='len', ascending=False) # to get descending sorty with higher numbers first
+countries_reviewed.sort_index() # index sort
+countries_reviewed.sort_values(by=['country', 'len']) # sorting by multiple columns
