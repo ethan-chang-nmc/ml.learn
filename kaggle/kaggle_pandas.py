@@ -128,3 +128,8 @@ countries_reviewed.sort_values(by='len') # normally sorts by index, this sorts b
 countries_reviewed.sort_values(by='len', ascending=False) # to get descending sorty with higher numbers first
 countries_reviewed.sort_index() # index sort
 countries_reviewed.sort_values(by=['country', 'len']) # sorting by multiple columns
+
+# Problems and Solutions
+# Who are the most common wine reviewers in the dataset? Create a Series whose index is the taster_twitter_handle category from the dataset, and whose values count how many reviews each person wrote.
+reviews_written = reviews.groupby('taster_twitter_handle').size() # or
+reviews_written = reviews.groupby('taster_twitter_handle').size()
