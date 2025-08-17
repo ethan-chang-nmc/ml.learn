@@ -183,3 +183,8 @@ reviews_per_region = reviews.region_1.fillna("Unknown").value_counts().sort_valu
 Renaming and Combining
 '''
 # Renaming
+reviews.rename(columns={'points': 'score'}) # changes index names and/or column names
+reviews.rename(index={0: 'firstEntry', 1: 'secondEntry'}) # use "index" or "column" to specify, has multiple input formats but python dictionary usually most convenient
+reviews.rename_axis("wines", axis='rows').rename_axis("fields", axis='columns') # renames row index and column index (name attribute)
+
+# 
