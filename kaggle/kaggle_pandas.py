@@ -149,3 +149,24 @@ reviewer_mean_ratings.describe()
 
 # What combination of countries and varieties are most common? Create a Series whose index is a MultiIndexof {country, variety} pairs. For example, a pinot noir produced in the US should map to {"US", "Pinot Noir"}. Sort the values in the Series in descending order based on wine count.
 country_variety_counts = reviews.groupby(["country", "variety"]).size().sort_values(ascending=False)
+
+
+'''
+Data Types and Missing Values
+'''
+# dtype: data type for a column in a DataFrame or Series
+reviews.price.dtype # outputs: dtype('float64')
+reviews.dtype # outputs dtype of every column in DataFrame
+reviews.points.astype('float64') # astype() converts a column to a different type
+reviews.index.dtype # index as type dtype('int64')
+
+# missing data: NaN are always of float64 dtype
+reviews[pd.isnull(reviews.country)] # companion pd.notnull()
+reviews.region_2.fillna("Unknown") # replaces missing values, can also use backfill strategy that replaces missing value with first non-null value tat appears sometime after given record
+reviews.taster_twitter_handle.replace("@kerinokeefe", "@kerino")\
+
+# Examples and solutions
+# What is the data type of the points column in the dataset?
+dtype = reviews.points.dtype
+
+# Create a Series from entries in the points column, but convert the entries to strings. Hint: strings are str in native Python.
