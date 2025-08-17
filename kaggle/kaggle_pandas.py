@@ -193,4 +193,4 @@ british_youtube = pd.read_csv("../input/youtube-new/GBvideos.csv")
 pd.concat([canadian_youtube, british_youtube]) # useful if columns have same name, mushes along axis
 left = canadian_youtube.set_index(['title', 'trending_date'])
 right = british_youtube.set_index(['title', 'trending_date'])
-left.join(right, lsuffix='_CAN', rsuffix='_UK')
+left.join(right, lsuffix='_CAN', rsuffix='_UK') # adds suffixes to avoid merge name conflicts, merges when index has commonality
