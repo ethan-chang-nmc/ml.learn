@@ -187,4 +187,10 @@ reviews.rename(columns={'points': 'score'}) # changes index names and/or column 
 reviews.rename(index={0: 'firstEntry', 1: 'secondEntry'}) # use "index" or "column" to specify, has multiple input formats but python dictionary usually most convenient
 reviews.rename_axis("wines", axis='rows').rename_axis("fields", axis='columns') # renames row index and column index (name attribute)
 
-# 
+# Combining: concat(), join(), merge() - most of merge can be done more simply by join
+canadian_youtube = pd.read_csv("../input/youtube-new/CAvideos.csv")
+british_youtube = pd.read_csv("../input/youtube-new/GBvideos.csv")
+pd.concat([canadian_youtube, british_youtube]) # useful if columns have same name, mushes along axis
+left = canadian_youtube.set_index(['title', 'trending_date'])
+right = british_youtube.set_index(['title', 'trending_date'])
+left.join(right, lsuffix='_CAN', rsuffix='_UK')
