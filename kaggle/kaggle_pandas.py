@@ -196,3 +196,8 @@ right = british_youtube.set_index(['title', 'trending_date'])
 left.join(right, lsuffix='_CAN', rsuffix='_UK') # adds suffixes to avoid merge name conflicts, merges when index has commonality
 
 # Examples and Solutions
+# region_1 and region_2 are pretty uninformative names for locale columns in the dataset. Create a copy of reviews with these columns renamed to region and locale, respectively.
+renamed = reviews.rename(columns={"region_1": "region", "region_2": "locale"})
+
+# Set the index name in the dataset to wines.
+reindexed = reviews.rename_axis("wines", axis="rows")
