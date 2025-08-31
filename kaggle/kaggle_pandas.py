@@ -208,3 +208,8 @@ gaming_products['subreddit'] = "r/gaming"
 movie_products = pd.read_csv("../input/things-on-reddit/top-things/top-things/reddits/m/movies.csv")
 movie_products['subreddit'] = "r/movies"
 combined_products = pd.concat([gaming_products, movie_products])
+
+# The Powerlifting Database dataset on Kaggle includes one CSV table for powerlifting meets and a separate one for powerlifting competitors. Run the cell below to load these datasets into dataframes:
+powerlifting_meets = pd.read_csv("../input/powerlifting-database/meets.csv")
+powerlifting_competitors = pd.read_csv("../input/powerlifting-database/openpowerlifting.csv")
+# Both tables include references to a MeetID, a unique key for each meet (competition) included in the database. Using this, generate a dataset combining the two tables into one.
